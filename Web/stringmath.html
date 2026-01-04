@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+  <center>
+    <h1 style="color: brown; background-color: bisque;">MATH AND STRING FUNCTIONS</h1>
+  </center>
+    <div class="section1" style="background-color: rgb(228, 171, 86);">
+      <h2 style="color: blue;">String Functions</h2>
+      Enter a string:
+      <input type="text" id="string"><br><br><br><br>
+
+     <center> <button onclick="showLength()">LENGTH</button>
+      <button onclick="toUpper()">TO UPPERCASE</button>
+      <button onclick="toLower()">TO LOWERCASE</button>
+      <button onclick="reverseString()">REVERSE</button><br><br><br><br>
+      <button onclick="charAt()">CHAR AT INDEX</button>
+      <button onclick="substring()">SUBSTRING</button>
+      <button onclick="replaceString()">REPLACE</button>
+      <button onclick="includesString()">INCLUDES?</button><br><br><br><br>
+      <button onclick="trimString()">TRIM</button>
+      <button onclick="splitString()">SPLIT</button><br><br><br><br>
+
+      <p id="stringResult" style="margin-top:20px;"></p>
+    </div></center>
+
+    <div class="section2" style="background-color: rgb(128, 134, 246);">
+      <h2 style="color: blue;">Math Functions</h2>
+     Enter a number:
+       <input type="number" id="number" step="any"><br><br><br><br><br> <center>
+
+      <button onclick="showAbs()">ABSOLUTE</button>
+      <button onclick="showRound()">ROUND</button>
+      <button onclick="showFloor()">FLOOR</button>
+      <button onclick="showCeil()">CEIL</button><br><br><br><br>
+      <button onclick="showSqrt()">SQRT</button>
+      <button onclick="showPow()">POWER (^2)</button>
+      <button onclick="showMax()">MAX(5,10)</button><br><br><br><br>
+      <button onclick="showMin()">MIN(5,10)</button>
+      <button onclick="showRandom()">RANDOM (0-1)</button>
+      <button onclick="showTrig()">SIN / COS / TAN</button><br><br><br><br>
+
+      <p id="mathResult" style="margin-top:20px;"></p>
+    </div>
+
+    <button onclick="resetAll()">RESET</button>
+
+  </center>
+
+  <script>
+    // String Functions
+    function showLength() {
+      let s = document.getElementById("string").value;
+      document.getElementById("stringResult").innerText = "Length: " + s.length;
+    }
+
+    function toUpper() {
+      let s = document.getElementById("string").value;
+      document.getElementById("stringResult").innerText = "Uppercase: " + s.toUpperCase();
+    }
+
+    function toLower() {
+      let s = document.getElementById("string").value;
+      document.getElementById("stringResult").innerText = "Lowercase: " + s.toLowerCase();
+    }
+
+    function reverseString() {
+      let s = document.getElementById("string").value;
+      document.getElementById("stringResult").innerText = "Reversed: " + s.split("").reverse().join("");
+    }
+
+    function charAt() {
+      let s = document.getElementById("string").value;
+      let index = prompt("Enter index:");
+      if (index < 0 || index >= s.length) {
+        document.getElementById("stringResult").innerText = "Index out of bounds.";
+      } else {
+        document.getElementById("stringResult").innerText = "Character at index " + index + ": " + s.charAt(index);
+      }
+    }
+
+    function substring() {
+      let s = document.getElementById("string").value;
+      let start = parseInt(prompt("Start index:"));
+      let end = parseInt(prompt("End index:"));
+      if (isNaN(start) || isNaN(end)) {
+        document.getElementById("stringResult").innerText = "Invalid input.";
+      } else {
+        document.getElementById("stringResult").innerText = "Substring: " + s.substring(start, end);
+      }
+    }
+
+    function replaceString() {
+      let s = document.getElementById("string").value;
+      let find = prompt("Find what:");
+      let replaceWith = prompt("Replace with:");
+      document.getElementById("stringResult").innerText = "Result: " + s.replace(find, replaceWith);
+    }
+
+    function includesString() {
+      let s = document.getElementById("string").value;
+      let term = prompt("Enter substring to check:");
+      document.getElementById("stringResult").innerText = s.includes(term) ? "Yes, it includes '" + term + "'" : "No, it doesn't include '" + term + "'";
+    }
+
+    function trimString() {
+      let s = document.getElementById("string").value;
+      document.getElementById("stringResult").innerText = "Trimmed: '" + s.trim() + "'";
+    }
+
+    function splitString() {
+      let s = document.getElementById("string").value;
+      let delimiter = prompt("Enter delimiter (e.g., space):");
+      let parts = s.split(delimiter);
+      document.getElementById("stringResult").innerText = "Split parts: " + parts.join(" | ");
+    }
+
+    // Math Functions
+    function getNumber() {
+      let val = document.getElementById("number").value;
+      if (val === "") {
+        document.getElementById("mathResult").innerText = "Please enter a number!";
+        throw new Error("No number entered.");
+      }
+      return parseFloat(val);
+    }
+
+    function showAbs() {
+      let num = getNumber();
+      document.getElementById("mathResult").innerText = "Absolute: " + Math.abs(num);
+    }
+
+    function showRound() {
+      let num = getNumber();
+      document.getElementById("mathResult").innerText = "Rounded: " + Math.round(num);
+    }
+
+    function showFloor() {
+      let num = getNumber();
+      document.getElementById("mathResult").innerText = "Floor: " + Math.floor(num);
+    }
+
+    function showCeil() {
+      let num = getNumber();
+      document.getElementById("mathResult").innerText = "Ceiling: " + Math.ceil(num);
+    }
+
+    function showSqrt() {
+      let num = getNumber();
+      document.getElementById("mathResult").innerText = num < 0 ? "Square root not defined for negatives!" : "Square root: " + Math.sqrt(num);
+    }
+
+    function showPow() {
+      let num = getNumber();
+      document.getElementById("mathResult").innerText = "Power (squared): " + Math.pow(num, 2);
+    }
+
+    function showMax() {
+      document.getElementById("mathResult").innerText = "Max of 5 and 10: " + Math.max(5, 10);
+    }
+
+    function showMin() {
+      document.getElementById("mathResult").innerText = "Min of 5 and 10: " + Math.min(5, 10);
+    }
+
+    function showRandom() {
+      document.getElementById("mathResult").innerText = "Random (0-1): " + Math.random();
+    }
+
+    function showTrig() {
+      let num = getNumber();
+      let radians = num * (Math.PI / 180); // Convert degrees to radians
+      document.getElementById("mathResult").innerText =
+        "sin(" + num + "°): " + Math.sin(radians).toFixed(4) +
+        "\n cos(" + num + "°): " + Math.cos(radians).toFixed(4) +
+        "\n tan(" + num + "°): " + Math.tan(radians).toFixed(4);
+    }
+
+    // Reset Function
+    function resetAll() {
+      document.getElementById("string").value = "";
+      document.getElementById("number").value = "";
+      document.getElementById("stringResult").innerText = "";
+      document.getElementById("mathResult").innerText = "";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About CSS - Learn CSS</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      background-color: #111; /* fallback bg color */
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Background image + overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://img.freepik.com/free-vector/background-realistic-abstract-technology-particle_23-2148431735.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center fixed;
+      background-size: cover;
+      filter: brightness(0.5);
+      z-index: -2;
+      transition: filter 0.3s ease;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(30, 30, 40, 0.85);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+      z-index: 10;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #bda1ff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+    nav a {
+      color: #bda1ff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+    nav a:hover,
+    nav a:focus {
+      background: #845ef7;
+      transform: translateY(-3px);
+      outline: none;
+      box-shadow: 0 4px 10px rgba(132, 94, 247, 0.6);
+    }
+
+    /* Layout */
+    .content-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 60px auto 80px;
+      gap: 30px;
+      padding: 0 20px;
+      color: #eee;
+    }
+
+    /* Sidebar */
+    aside {
+      flex: 0 0 280px;
+      background: rgba(50, 40, 80, 0.75);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.75);
+      user-select: none;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+    aside h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #d1c4ff;
+      border-bottom: 2px solid #845ef7;
+      padding-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    aside ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    aside ul li {
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    aside ul li:hover {
+      color: #a27cff;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+    }
+    main h1 {
+      font-size: 3rem;
+      margin-bottom: 25px;
+      color: #d7ccff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    /* Cards / frames for sections */
+    section {
+      background: rgba(40, 30, 70, 0.7);
+      padding: 25px 30px;
+      border-radius: 20px;
+      margin-bottom: 35px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.75);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(132, 94, 247, 0.8);
+    }
+    section h2 {
+      color: #b8a6ff;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      border-left: 5px solid #845ef7;
+      padding-left: 15px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    }
+    section p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #d9d5f9;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: rgba(30, 30, 40, 0.85);
+      font-size: 0.95rem;
+      color: #bbb;
+      user-select: none;
+      box-shadow: 0 -3px 15px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 5;
+    }
+    footer a {
+      color: #bda1ff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #845ef7;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .content-wrapper {
+        flex-direction: column;
+        margin: 40px 20px 60px;
+      }
+      aside {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+        height: auto;
+      }
+      main h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Learn CSS</h1>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="syntax.html">Syntax</a>
+      <a href="histogram.html">Types
+      <a href="about.html" aria-current="page">About CSS</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="content-wrapper" role="main">
+
+    <aside aria-label="Sidebar navigation">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="#intro" style="color:inherit; text-decoration:none;">Introduction</a></li>
+        <li><a href="#advantages" style="color:inherit; text-decoration:none;">Advantages</a></li>
+        <li><a href="#usage" style="color:inherit; text-decoration:none;">Usage</a></li>
+        <li><a href="#resources" style="color:inherit; text-decoration:none;">Resources</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section id="intro">
+        <h1>About CSS</h1>
+        <p>
+          Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML.
+          CSS separates content from design, allowing web developers to create visually engaging pages with layout, colors, fonts, and animations.
+        </p>
+      </section>
+
+      <section id="advantages">
+        <h2>Advantages of CSS</h2>
+        <p>
+          Using CSS brings numerous benefits:
+          <ul>
+            <li>Separation of content and presentation</li>
+            <li>Consistency across multiple pages</li>
+            <li>Improved site performance and maintenance</li>
+            <li>Responsive designs for different screen sizes</li>
+            <li>Advanced styling and animations</li>
+          </ul>
+        </p>
+      </section>
+
+      <section id="usage">
+        <h2>How CSS Is Used</h2>
+        <p>
+          CSS can be applied in three main ways:
+          <ul>
+            <li><strong>Inline CSS:</strong> Styles added directly within HTML elements using the <code>style</code> attribute.</li>
+            <li><strong>Internal CSS:</strong> Styles defined within a <code>&lt;style&gt;</code> block inside an HTML document's <code>&lt;head&gt;</code>.</li>
+            <li><strong>External CSS:</strong> Styles written in separate <code>.css</code> files and linked using the <code>&lt;link&gt;</code> tag.</li>
+          </ul>
+        </p>
+      </section>
+
+      <section id="resources">
+        <h2>Further Learning Resources</h2>
+        <p>
+          Explore these resources to deepen your understanding of CSS:
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" style="color:#bda1ff;">MDN Web Docs - CSS</a></li>
+            <li><a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer" style="color:#bda1ff;">CSS-Tricks</a></li>
+            <li><a href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer" style="color:#bda1ff;">W3Schools CSS Tutorial</a></li>
+            <li><a href="https://web.dev/learn/css/" target="_blank" rel="noopener noreferrer" style="color:#bda1ff;">web.dev Learn CSS</a></li>
+          </ul>
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 Learn CSS • <a href="privacy.html">Privacy Policy</a>
+  </footer>
+
+</body>
+</html>

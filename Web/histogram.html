@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<<<<<<< HEAD
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Types of CSS - Learn CSS</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+=======
+  <meta charset="UTF-8">
+  <title>Types of CSS - Learn CSS</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+>>>>>>> db17019 ( calendaradded)
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #eee;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+<<<<<<< HEAD
+      position: relative;
+    }
+
+    /* Background image + overlay */
+=======
+    }
+
+    /* Background Image with Overlay */
+>>>>>>> db17019 ( calendaradded)
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://img.freepik.com/free-vector/background-realistic-abstract-technology-particle_23-2148431735.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center fixed;
+      background-size: cover;
+      filter: brightness(0.5);
+      z-index: -2;
+<<<<<<< HEAD
+      transition: filter 0.3s ease;
+=======
+>>>>>>> db17019 ( calendaradded)
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+<<<<<<< HEAD
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(30, 30, 40, 0.85);
+=======
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(30, 30, 40, 0.9);
+>>>>>>> db17019 ( calendaradded)
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+      z-index: 10;
+    }
+<<<<<<< HEAD
+=======
+
+>>>>>>> db17019 ( calendaradded)
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #bda1ff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+<<<<<<< HEAD
+    nav a {
+      color: #bda1ff;
+      text-decoration: none;
+      margin-left: 30px;
+=======
+
+    /* Nav Box */
+    .nav-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+>>>>>>> db17019 ( calendaradded)
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+<<<<<<< HEAD
+      user-select: none;
+    }
+=======
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+>>>>>>> db17019 ( calendaradded)
+    nav a:hover,
+    nav a:focus {
+      background: #845ef7;
+      transform: translateY(-3px);
+      outline: none;
+      box-shadow: 0 4px 10px rgba(132, 94, 247, 0.6);
+    }
+
+    /* Layout */
+    .content-wrapper {
+      display: flex;
+      max-width: 1100px;
+      margin: 60px auto 80px;
+      gap: 30px;
+      padding: 0 20px;
+      color: #eee;
+    }
+
+    /* Sidebar */
+    aside {
+<<<<<<< HEAD
+      flex: 0 0 280px;
+      background: rgba(50, 40, 80, 0.75);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.75);
+      user-select: none;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+    aside h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #d1c4ff;
+      border-bottom: 2px solid #845ef7;
+      padding-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    aside ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    aside ul li {
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    aside ul li:hover {
+      color: #a27cff;
+    }
+    aside ul li a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      padding: 6px 0;
+    }
+    aside ul li a:hover,
+    aside ul li a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+    }
+    main h1 {
+      font-size: 3rem;
+      margin-bottom: 25px;
+      color: #d7ccff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    /* Cards / frames for sections */
+    section {
+      background: rgba(40, 30, 70, 0.7);
+      padding: 25px 30px;
+      border-radius: 20px;
+      margin-bottom: 35px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.75);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(132, 94, 247, 0.8);
+    }
+    section h2 {
+      color: #b8a6ff;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      border-left: 5px solid #845ef7;
+      padding-left: 15px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    }
+    section p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #d9d5f9;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    section ul {
+      list-style: disc inside;
+      margin-top: 12px;
+      color: #c3bff7;
+    }
+    section ul li {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    section code {
+      background-color: rgba(132, 94, 247, 0.2);
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: monospace;
+      color: #bda1ff;
+    }
+    section a {
+      color: #bda1ff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    section a:hover,
+    section a:focus {
+      color: #845ef7;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: rgba(30, 30, 40, 0.85);
+      font-size: 0.95rem;
+      color: #bbb;
+      user-select: none;
+      box-shadow: 0 -3px 15px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 5;
+    }
+    footer a {
+      color: #bda1ff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #845ef7;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .content-wrapper {
+        flex-direction: column;
+        margin: 40px 20px 60px;
+      }
+      aside {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+        height: auto;
+      }
+      main h1 {
+        font-size: 2.5rem;
+=======
+      min-width: 200px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+      height: fit-content;
+    }
+
+    aside h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #bda1ff;
+    }
+
+    aside ul {
+      list-style-type: none;
+    }
+
+    aside ul li {
+      margin-bottom: 10px;
+    }
+
+    aside ul li a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    aside ul li a:hover {
+      color: #845ef7;
+      text-decoration: underline;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      color: #eee;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border: 1px solid #6a4dff;
+    }
+
+    thead {
+      background: #845ef7;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(50, 40, 80, 0.7);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: rgba(40, 30, 70, 0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .nav-box {
+        flex-wrap: wrap;
+        justify-content: center;
+>>>>>>> db17019 ( calendaradded)
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Learn CSS</h1>
+    <nav aria-label="Primary navigation">
+<<<<<<< HEAD
+      <a href="index.html">Home</a>
+      <a href="syntax.html">Syntax</a>
+      <a href="histogram.html">Types</a>
+      <a href="about.html">About CSS</a>
+      <a href="types.html" aria-current="page">Types of CSS</a>
+      <a href="contact.html">Contact</a>
+=======
+      <div class="nav-box">
+        <a href="css.html">Home</a>
+        <a href="syntax.html">Syntax</a>
+        <a href="histogram.html">Types</a>
+      </div>
+>>>>>>> db17019 ( calendaradded)
+    </nav>
+  </header>
+
+  <div class="content-wrapper" role="main">
+<<<<<<< HEAD
+
+=======
+>>>>>>> db17019 ( calendaradded)
+    <aside aria-label="Sidebar navigation">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#inline-css">Inline CSS</a></li>
+        <li><a href="#internal-css">Internal CSS</a></li>
+        <li><a href="#external-css">External CSS</a></li>
+        <li><a href="#comparison">Comparison</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section id="inline-css">
+        <h1>Types of CSS</h1>
+        <h2>Inline CSS</h2>
+        <p>
+          Inline CSS involves adding style rules directly within an HTML element using the <code>style</code> attribute. This method applies styles only to the specific element.
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre style="background: rgba(132, 94, 247, 0.15); padding: 10px; border-radius: 10px; overflow-x:auto;">
+&lt;p style="color: blue; font-weight: bold;"&gt;This is inline CSS.&lt;/p&gt;
+        </pre>
+        <p><strong>Pros:</strong></p>
+        <ul>
+          <li>Quick for small changes</li>
+          <li>Overrides other CSS rules</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+          <li>Hard to maintain</li>
+          <li>Doesn't promote reuse</li>
+          <li>Can clutter HTML</li>
+        </ul>
+      </section>
+
+      <section id="internal-css">
+        <h2>Internal CSS</h2>
+        <p>
+          Internal CSS is written inside a <code>&lt;style&gt;</code> tag within the <code>&lt;head&gt;</code> section of an HTML document. It affects the entire page.
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre style="background: rgba(132, 94, 247, 0.15); padding: 10px; border-radius: 10px; overflow-x:auto;">
+&lt;head&gt;
+  &lt;style&gt;
+    p {
+      color: green;
+      font-size: 18px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+        </pre>
+        <p><strong>Pros:</strong></p>
+        <ul>
+          <li>Good for single pages</li>
+          <li>No external dependencies</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+          <li>Not reusable across multiple pages</li>
+          <li>Can bloat HTML files</li>
+        </ul>
+      </section>
+
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> db17019 ( calendaradded)
+      <section id="external-css">
+        <h2>External CSS</h2>
+        <p>
+          External CSS uses separate <code>.css</code> files linked via the <code>&lt;link&gt;</code> tag in the HTML document's <code>&lt;head&gt;</code>. It allows styles to be reused across multiple pages.
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre style="background: rgba(132, 94, 247, 0.15); padding: 10px; border-radius: 10px; overflow-x:auto;">
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+        </pre>
+        <p><strong>Pros:</strong></p>
+        <ul>
+          <li>Reusable styles across pages</li>
+          <li>Keeps HTML clean and maintainable</li>
+          <li>Better caching and performance</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+          <li>Requires additional HTTP requests (usually optimized)</li>
+        </ul>
+      </section>
+
+      <section id="comparison">
+        <h2>Comparison Summary</h2>
+        <p>
+          Here is a quick summary comparing the three types of CSS:
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; color:#eee;">
+          <thead>
+            <tr style="background: #845ef7;">
+              <th style="padding: 12px; border: 1px solid #6a4dff;">Type</th>
+              <th style="padding: 12px; border: 1px solid #6a4dff;">Scope</th>
+              <th style="padding: 12px; border: 1px solid #6a4dff;">Maintainability</th>
+              <th style="padding: 12px; border: 1px solid #6a4dff;">Reusability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: rgba(50, 40, 80, 0.7);">
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Inline CSS</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Single element</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Low</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">None</td>
+            </tr>
+            <tr style="background: rgba(40, 30, 70, 0.7);">
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Internal CSS</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Single page</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Medium</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">No</td>
+            </tr>
+            <tr style="background: rgba(50, 40, 80, 0.7);">
+              <td style="padding: 10px; border: 1px solid #6a4dff;">External CSS</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Multiple pages</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">High</td>
+              <td style="padding: 10px; border: 1px solid #6a4dff;">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="resources">
+        <h2>Further Learning Resources</h2>
+        <ul>
+<<<<<<< HEAD
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">MDN Web Docs - CSS</a></li>
+          <li><a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS-Tricks</a></li>
+          <li><a href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer">W3Schools CSS Tutorial</a></li>
+          <li><a href="https://web.dev/learn/css/" target="_blank" rel="noopener noreferrer">web.dev Learn CSS</a></li>
+=======
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" >MDN Web Docs - CSS</a></li>
+          <li><a href="https://css-tricks.com/" target="_blank" >CSS-Tricks</a></li>
+          <li><a href="https://www.w3schools.com/css/" target="_blank" >W3Schools CSS Tutorial</a></li>
+          <li><a href="https://web.dev/learn/css/" target="_blank" >web.dev Learn CSS</a></li>
+>>>>>>> db17019 ( calendaradded)
+        </ul>
+      </section>
+    </main>
+  </div>
+
+<<<<<<< HEAD
+  <footer>
+    &copy; 2025 Learn CSS • <a href="privacy.html">Privacy Policy</a>
+  </footer>
+=======
+ 
+>>>>>>> db17019 ( calendaradded)
+
+</body>
+</html>

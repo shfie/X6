@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body
+    background="https://img.freepik.com/free-photo/brown-watercolor-leaf-background-aesthetic-autumn-season_53876-143134.jpg?semt=ais_hybrid&w=740&q=80"
+  >
+    <center>
+      <marquee
+        direction="right"
+        onmouseover="this.stop()"
+        onmouseout="this.start()"
+      >
+        <h1 style="color: brown">WELCOME TO FRESHERS WORLD</h1>
+      </marquee>
+
+      <br /><br /><br /><br />
+      <table border="1" style="background-color: lightyellow">
+        <form id="regForm">
+          <tr>
+            <th colspan="3"><h2>REGISTRATION FORM</h2></th>
+          </tr>
+
+          <tr>
+            <th>NAME <span style="color: red">*</span></th>
+            <td colspan="2">
+              <input type="text" id="name" />
+              <br /><span id="n" style="color: brown"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>AGE</th>
+            <td colspan="2">
+              <select id="age">
+                <option value="">Select</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25+</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <th>PASSWORD <span style="color: red">*</span></th>
+            <td colspan="2">
+              <input type="password" id="pass" />
+              <br /><span id="p1" style="color: brown"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>RE-ENTER PASSWORD <span style="color: red">*</span></th>
+            <td colspan="2">
+              <input type="password" id="repass" />
+              <br /><span id="p2" style="color: brown"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <th rowspan="4">SELECT YOUR SECURITY QUESTION</th>
+            <td colspan="2">
+              <input type="radio" name="sec" value="pet" /> YOUR FIRST PET NAME
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="radio" name="sec" value="school" /> YOUR FIRST SCHOOL
+              NAME
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="radio" name="sec" value="place" /> YOUR BIRTH PLACE
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="radio" name="sec" value="friend" /> YOUR BEST FRIEND
+              NAME
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              ANSWER OF SECURITY QUESTION <span style="color: red">*</span>
+            </th>
+            <td colspan="2">
+              <input type="text" id="ans" />
+              <br /><span id="a" style="color: brown"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>EMAIL ID <span style="color: red">*</span></th>
+            <td colspan="2">
+              <input type="email" id="email" />
+              <br /><span id="e" style="color: brown"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>LANGUAGES KNOWN</th>
+            <td colspan="2">
+              <input type="checkbox" name="lang" value="malayalam" />MALAYALAM
+              <input type="checkbox" name="lang" value="english" />ENGLISH
+              <input type="checkbox" name="lang" value="hindi" />HINDI
+              <input type="checkbox" name="lang" value="arabic" />ARABIC
+              <input type="checkbox" name="lang" value="french" />FRENCH
+            </td>
+          </tr>
+
+          <tr>
+            <th rowspan="2">PHONE NO <span style="color: red">*</span></th>
+            <th>HOME</th>
+            <th>OFFICE</th>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" id="home" />
+              <br /><span id="h" style="color: brown"></span>
+            </td>
+            <td>
+              <input type="text" id="office" />
+              <br /><span id="o" style="color: brown"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <th>UPLOAD CV</th>
+            <td colspan="2"><input type="file" name="cv" /></td>
+          </tr>
+
+          <tr>
+            <th>
+              <input type="submit" value="SUBMIT" onclick="check(event)" />
+            </th>
+            <th colspan="2"><input type="reset" value="RESET" /></th>
+          </tr>
+        </form>
+      </table>
+    </center>
+
+    <script>
+      function check(event) {
+        event.preventDefault();
+
+        // Get values
+        var name = document.getElementById("name").value.trim();
+        var pass = document.getElementById("pass").value.trim();
+        var repass = document.getElementById("repass").value.trim();
+        var ans = document.getElementById("ans").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var home = document.getElementById("home").value.trim();
+        var office = document.getElementById("office").value.trim();
+
+        // Regex patterns
+        var nameRegex = /^[A-Za-z\s]+$/;
+        var emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        var phoneRegex = /^\d{10}$/;
+
+        // Clear old errors
+        document.getElementById("n").textContent = "";
+        document.getElementById("p1").textContent = "";
+        document.getElementById("p2").textContent = "";
+        document.getElementById("a").textContent = "";
+        document.getElementById("e").textContent = "";
+        document.getElementById("h").textContent = "";
+        document.getElementById("o").textContent = "";
+
+        let valid = true;
+
+        // Name
+        if (name === "") {
+          document.getElementById("n").textContent = "*Please enter your name";
+          valid = false;
+        } else if (!nameRegex.test(name)) {
+          document.getElementById("n").textContent =
+            "*Only letters and spaces allowed";
+          valid = false;
+        }
+
+        // Password
+        if (pass === "") {
+          document.getElementById("p1").textContent = "*Please enter password";
+          valid = false;
+        } else if (pass.length < 6) {
+          document.getElementById("p1").textContent =
+            "*Password must be at least 6 characters";
+          valid = false;
+        }
+
+        // Re-enter Password
+        if (repass === "") {
+          document.getElementById("p2").textContent =
+            "*Please re-enter password";
+          valid = false;
+        } else if (pass !== repass) {
+          document.getElementById("p2").textContent = "*Passwords do not match";
+          valid = false;
+        }
+
+        // Security Answer
+        if (ans === "") {
+          document.getElementById("a").textContent =
+            "*Please answer the security question";
+          valid = false;
+        }
+
+        // Email
+        if (email === "") {
+          document.getElementById("e").textContent = "*Please enter your email";
+          valid = false;
+        } else if (!emailRegex.test(email)) {
+          document.getElementById("e").textContent =
+            "*Enter a valid email address";
+          valid = false;
+        }
+
+        // Home Phone
+        if (home === "") {
+          document.getElementById("h").textContent = "*Enter home phone number";
+          valid = false;
+        } else if (!phoneRegex.test(home)) {
+          document.getElementById("h").textContent = "*Must be 10 digits";
+          valid = false;
+        }
+
+        // Office Phone
+        if (office === "") {
+          document.getElementById("o").textContent =
+            "*Enter office phone number";
+          valid = false;
+        } else if (!phoneRegex.test(office)) {
+          document.getElementById("o").textContent = "*Must be 10 digits";
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Form submitted successfully!");
+          document.getElementById("regForm").reset();
+        }
+      }
+    </script>
+  </body>
+</html>

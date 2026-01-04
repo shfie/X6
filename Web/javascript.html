@@ -1,0 +1,48 @@
+<!-- <html>
+<body>
+  <form onsubmit="sum(event)">
+    ENTER number1
+    <input type="number" id="n1">
+    ENTER number2
+    <input type="number" id="n2">
+    <button type="submit">SUM</button>
+  </form>
+
+  <script>
+    function sum() {
+      
+      let a = parseInt(document.getElementById('n1').value);
+      let b = parseInt(document.getElementById('n2').value);
+      let s = a + b;
+      document.write("Sum:", s);
+      alert("Sum = " + s);
+    }
+  </script>
+</body>
+</html> -->
+<html>
+  <body>
+    <h1 id="hello">hello</h1>
+
+    <button type="button" onclick="red()">Red</button>
+    <button type="button" onclick="blue()">Blue</button>
+    <button type="button" onclick="green()">Green</button>
+
+    <script>
+           let userColor = prompt("Enter a color (e.g. red, blue, green):");
+           
+      function red() {
+        document.getElementById("hello").style.color = "red";
+      }
+
+      function blue() {
+        document.getElementById("hello").style.color = "blue";
+      }
+
+      function green() {
+        document.getElementById("hello").style.color = "green";
+      }
+    </script>
+  </body>
+</html>
+
